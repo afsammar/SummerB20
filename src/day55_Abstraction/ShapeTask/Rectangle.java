@@ -1,25 +1,25 @@
 package day55_Abstraction.ShapeTask;
 
-public class Circle extends Shape {
-public double radius;
+public class Rectangle extends Shape {
 
-    public Circle(double radius){
-        if(radius<=0){
-            throw new RuntimeException("Radius cannot be negative or zero!");
-        }
-        this.radius = radius;
+    public double width;
+    public double length;
+
+    public Rectangle(double width, double length) {
+        this.width = width;
+        this.length = length;
         area = calculateArea();
         perimeter = calculatePerimeter();
-        volume = calculateVolume();
     }
+
     @Override
     public double calculateArea() {
-        return Math.pow(radius,2)*Math.PI;
+        return width*length;
     }
 
     @Override
     public double calculatePerimeter() {
-        return radius*2*Math.PI;
+        return (width+length)*2;
     }
 
     @Override
@@ -27,14 +27,15 @@ public double radius;
         return 0;
     }
     static {
-        name = "Circle";
-        hasVolume = false;
+        name = "Rectangle";
+        hasVolume =false;
     }
 
     @Override
     public String toString() {
-        return "Circle{" +
-                "radius=" + radius +
+        return "Rectangle{" +
+                "width=" + width +
+                ", length=" + length +
                 ", area=" + area +
                 ", perimeter=" + perimeter +
                 ", volume=" + volume +
